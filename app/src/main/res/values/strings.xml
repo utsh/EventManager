@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">EventManager</string>
+    <string name="action_settings">Settings</string>
+    <string name="date">DATE</string>
+    <string name="time">TIME</string>
+    <string name="venue">VENUE: </string>
+    <string name="name">NAME </string>
+
+
+</resources>
