@@ -1,6 +1,7 @@
 package com.vimersia.utkarshsharma.eventmanager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ public class Eventcard_Adapter extends RecyclerView.Adapter<Eventcard_Adapter.Vi
 // Provide a reference to the views for each data item
 // Complex data items may need more than one view per item, and
 // you provide access to all the views for a data item in a view holder
-public static class ViewHolder extends RecyclerView.ViewHolder {
+public  class ViewHolder extends RecyclerView.ViewHolder {
     // each data item is just a string in this case
     public TextView EventNameTextView,EventDateTextView,EventTimeTextView,EventVenueTextView;
     public ImageView EventImageView;
@@ -33,6 +34,20 @@ public static class ViewHolder extends RecyclerView.ViewHolder {
         EventTimeTextView = (TextView) view.findViewById(R.id.event_time_inflate);
         EventVenueTextView = (TextView) view.findViewById(R.id.event_address);
         EventImageView = (ImageView) view.findViewById(R.id.image_card);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = getAdapterPosition();
+                String x =personList.get(position).get("TAG_Name");
+                view.getContext().startActivity(new Intent(view.getContext(),
+                        Event_Details.class).putExtra("T_NAME",personList.get(position).get("TAG_Name"))
+                        .putExtra("T_DATE",personList.get(position).get("TAG_Date"))
+                        .putExtra("T_TIME",personList.get(position).get("TAG_Time"))
+                        .putExtra("T_Address",personList.get(position).get("TAG_Address"))
+                        .putExtra("T_Desc",personList.get(position).get("TAG_Desc"))
+                );
+            }
+        });
     }
 
 }

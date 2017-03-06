@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_Address = "Event_Address";
     private static final String TAG_Date = "Event_Date";
     private static final String TAG_Time = "Event_Time";
+    private static final String TAG_Desc = "Event_Desc";
+
     JSONArray peoples = null;
     HashMap<String,String> persons ;
     ArrayList<HashMap<String, String>> personList;
@@ -62,11 +64,7 @@ public class MainActivity extends AppCompatActivity {
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        String [] myDataset = new String[4];
-        myDataset[0]="Google";
-        myDataset[1]="1/12/13";
-        myDataset[2]="10:30";
-        myDataset[3]="jbchkevbwev hhwirgubwev qeifbeifeufevfu";
+
 
 
         getData();
@@ -90,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
                 String date = c.getString(TAG_Date);
                 String time = c.getString(TAG_Time);
                 String address = c.getString(TAG_Address);
+                String desc = c.getString(TAG_Desc);
+
                /* Vr_Live_Database ldb = new Vr_Live_Database(getBaseContext());
                 ldb.createRecords(id,name);
                 Cursor mcur=ldb.selectRecords();*/
@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 persons.put("TAG_Date",date);
                 persons.put("TAG_Time",time);
                 persons.put("TAG_Address",address);
+                persons.put("TAG_Desc",desc);
                 personList.add(persons);
 
 
