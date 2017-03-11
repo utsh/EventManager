@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
     String myJSON;
 
     private static final String TAG_RESULTS="result";
-    private static final String TAG_Name = "Event_name";
+    private static final String TAG_Id = "Event_Id";
+    private static final String TAG_Name = "Event_Name";
     private static final String TAG_Address = "Event_Address";
     private static final String TAG_Date = "Event_Date";
     private static final String TAG_Time = "Event_Time";
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
             for(int i=0;i<peoples.length();i++){
                 JSONObject c = peoples.getJSONObject(i);
+                String id = c.getString(TAG_Id);
                 String name = c.getString(TAG_Name);
                 String date = c.getString(TAG_Date);
                 String time = c.getString(TAG_Time);
